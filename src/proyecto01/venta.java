@@ -1,41 +1,36 @@
 
 package proyecto01;
+// Paquete de datos e/s datos por consola
 import java.util.Scanner;
 
-public class venta {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class venta{
+    // Método principal
+    public static void main(String [] args ) {
+        // Declaración de variables
+        String empleado;
+        double ht, th, sb, d, sn;
 
-        // Solicitar el nombre del vendedor
-        System.out.print("Ingrese el nombre del vendedor: ");
-        String nombre = scanner.nextLine();
+        // Creando el objeto lectura
+        Scanner lectura = new Scanner(System.in);
 
-        // Solicitar el sueldo mensual
-        System.out.print("Ingrese el sueldo mensual del vendedor: ");
-        double sueldoMensual = scanner.nextDouble();
+        // Entrada de datos
+        System.out.print("Nombre de empleado: ");
+        empleado = lectura.next();
 
-        // Solicitar las tres ventas
-        System.out.print("Ingrese la venta 1: ");
-        double venta1 = scanner.nextDouble();
-        System.out.print("Ingrese la venta 2: ");
-        double venta2 = scanner.nextDouble();
-        System.out.print("Ingrese la venta 3: ");
-        double venta3 = scanner.nextDouble();
+        System.out.print("Horas trabajadas: ");
+        ht = lectura.nextDouble();
 
-        // Calcular la comisión
-        double comision = (venta1 + venta2 + venta3) * 0.10;
+        System.out.print("Tarifa por hora: ");
+        th = lectura.nextDouble();
 
-        // Calcular el pago total
-        double pagoTotal = sueldoMensual + comision;
+        // Proceso de datos
+        sb = ht * th;
+        d = sb * 0.13;
+        sn = sb - d;
 
-        // Mostrar los resultados
-        System.out.println("\n--- Resultados ---");
-        System.out.println("Nombre del vendedor: " + nombre);
-        System.out.println("Sueldo mensual: " + sueldoMensual);
-        System.out.println("Comision: " + comision);
-        System.out.println("Pago total a fin de mes: " + pagoTotal);
-
-        // Cerrar el scanner
-        scanner.close();
+        // Salida de datos
+        System.out.println("Sueldo bruto: " + sb);
+        System.out.println("Descuento: " + d);
+        System.out.println("Sueldo Neto: " + sn);
     }
 }
